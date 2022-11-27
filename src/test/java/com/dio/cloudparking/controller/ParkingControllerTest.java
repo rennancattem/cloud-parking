@@ -10,11 +10,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-import static io.restassured.RestAssured.when;
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ParkingControllerIT {
+class ParkingControllerTest extends AbstractContainerBase{
 
     @LocalServerPort
     private int randomPort;
@@ -30,7 +27,7 @@ class ParkingControllerIT {
                 .when()
                 .get("/parking")
                 .then()
-                .statusCode(200);
+                .statusCode(HttpStatus.OK.value());
 
 
     }
